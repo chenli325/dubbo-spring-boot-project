@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.spring.boot.demo.consumer.bootstrap;
 
+import com.google.protobuf.StringValue;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.spring.boot.demo.consumer.DemoService;
 import org.slf4j.Logger;
@@ -42,6 +43,6 @@ public class DubboRegistryZooKeeperConsumerBootstrap {
 
     @Bean
     public ApplicationRunner runner() {
-        return args -> logger.info(demoService.sayHello("mercyblitz"));
+        return args -> logger.info(demoService.sayHello(StringValue.of("mercyblitz")).getValue());
     }
 }

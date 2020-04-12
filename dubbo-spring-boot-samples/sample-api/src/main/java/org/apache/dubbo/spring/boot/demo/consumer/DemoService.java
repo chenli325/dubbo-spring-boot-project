@@ -16,6 +16,8 @@
  */
 package org.apache.dubbo.spring.boot.demo.consumer;
 
+import com.google.protobuf.StringValue;
+
 /**
  * Demo Service interface
  *
@@ -23,6 +25,6 @@ package org.apache.dubbo.spring.boot.demo.consumer;
  */
 public interface DemoService {
 
-    String sayHello(String name);
-
+    //String sayHello(String name);
+    StringValue sayHello(StringValue name);
 }

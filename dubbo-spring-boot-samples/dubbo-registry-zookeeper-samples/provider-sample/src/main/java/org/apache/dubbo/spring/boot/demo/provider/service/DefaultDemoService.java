@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.spring.boot.demo.provider.service;
 
+import com.google.protobuf.StringValue;
 import org.apache.dubbo.config.annotation.Service;
 import org.apache.dubbo.spring.boot.demo.consumer.DemoService;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,7 +37,11 @@ public class DefaultDemoService implements DemoService {
     private String serviceName;
 
     @Override
-    public String sayHello(String name) {
+/*    public String sayHello(String name) {
         return String.format("[%s] : Hello, %s", serviceName, name);
+    }*/
+    public StringValue sayHello(StringValue name){
+        String result = String.format("[%s] : Hello, %s", serviceName, name.getValue());
+        return StringValue.of(result);
     }
 }
